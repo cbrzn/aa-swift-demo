@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SafeDeploymentView: View {
+struct AccountAbstractionView: View {
     @State private var signerAddress = "0x61FfE691821291D02E9Ba5D33098ADcee71a3a17"
     @State private var safeAddress = "0x61FfE691821291D02E9Ba5D33098ADcee71a3a17"
     @State private var saltNonce = ""
@@ -51,8 +51,8 @@ struct SafeDeploymentView: View {
     }
 }
 
-struct SafeDeployment_Previews: PreviewProvider {
+struct AccountAbstractionView_Previews: PreviewProvider {
     static var previews: some View {
-        SafeDeploymentView()
+        AccountAbstractionView()
     }
 }

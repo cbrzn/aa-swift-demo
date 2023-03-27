@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PolywrapClient
 
 @main
 struct account_abstraction_demoApp: App {
