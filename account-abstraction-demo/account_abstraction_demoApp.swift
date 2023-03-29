@@ -2,11 +2,10 @@
 //  account_abstraction_demoApp.swift
 //  account-abstraction-demo
 //
-//  Created by Cesar Brazon on 26/3/23.
+//  Created by Cesar Brazon on 28/3/23.
 //
 
 import SwiftUI
-import PolywrapClient
 
 @main
 struct account_abstraction_demoApp: App {
