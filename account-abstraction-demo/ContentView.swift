@@ -7,23 +7,20 @@
 
 import SwiftUI
 import PolywrapClient
-import HttpPlugin
-//import metamask_ios_sdk
-//import MetamaskProvider
+import metamask_ios_sdk
+import MetamaskProvider
 
 struct ContentView: View {
-    @State private var isConnected = false
-//    @ObservedObject var ethereum: Ethereum = MetaMaskSDK.shared.ethereum
-//    private let dapp = Dapp(name: "Polywrap dApp", url: "https://polywrap.io")
-//    @State private var metamaskProvider: MetamaskProvider? = nil
+    @ObservedObject var ethereum: Ethereum = MetaMaskSDK.shared.ethereum
+    private let dapp = Dapp(name: "Polywrap dApp", url: "https://polywrap.io")
+    @State private var metamaskProvider: MetamaskProvider? = nil
 
     var body: some View {
         VStack {
             Text("Account abstraction demo")
                 .bold()
-//            if !ethereum.selectedAddress.isEmpty {
-            if isConnected {
-                AccountAbstractionView()
+            if metamaskProvider != nil {
+                AccountAbstractionView(metamaskProvider: metamaskProvider!)
             } else {
                 Button {
                     connect()
@@ -36,8 +33,7 @@ struct ContentView: View {
     }
 
     func connect() {
-        isConnected = true
-//        metamaskProvider = MetamaskProvider(provider: ethereum, dapp: dapp)
+        metamaskProvider = MetamaskProvider(ethereum: ethereum, dapp: dapp)
     }
 }
 

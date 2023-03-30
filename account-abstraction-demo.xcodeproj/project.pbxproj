@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB00CE9929D343E60024D257 /* PolywrapClient in Frameworks */ = {isa = PBXBuildFile; productRef = DB00CE9829D343E60024D257 /* PolywrapClient */; };
 		DB7458D529D2815B00B85519 /* account_abstraction_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7458D429D2815B00B85519 /* account_abstraction_demoApp.swift */; };
 		DB7458D729D2815B00B85519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7458D629D2815B00B85519 /* ContentView.swift */; };
 		DB7458D929D2815D00B85519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7458D829D2815D00B85519 /* Assets.xcassets */; };
 		DB7458DC29D2815D00B85519 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7458DB29D2815D00B85519 /* Preview Assets.xcassets */; };
 		DB7458E729D281A200B85519 /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7DBA9829D26E61009638BC /* ClientConfig.swift */; };
 		DB7458E829D281A900B85519 /* AccountAbstractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6697F029D0713E00E824B9 /* AccountAbstractionView.swift */; };
+		DB8AB63F29D4A85000AAA08C /* HttpPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = DB8AB63E29D4A85000AAA08C /* HttpPlugin */; };
+		DB8AB65229D4AF9A00AAA08C /* PolywrapClient in Frameworks */ = {isa = PBXBuildFile; productRef = DB8AB65129D4AF9A00AAA08C /* PolywrapClient */; };
 		DB90232729D3C7C900F3346F /* AccountAbstractionScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90232629D3C7C900F3346F /* AccountAbstractionScripts.swift */; };
-		DB90232D29D3DDDE00F3346F /* HttpPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = DB90232C29D3DDDE00F3346F /* HttpPlugin */; };
+		DBBE3E9929D4BBD2007E32E1 /* MetamaskProvider in Frameworks */ = {isa = PBXBuildFile; productRef = DBBE3E9829D4BBD2007E32E1 /* MetamaskProvider */; };
 		DBEFE00529D376BC006C4BC6 /* PolywrapNativeClient.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBEFE00329D3740E006C4BC6 /* PolywrapNativeClient.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -34,24 +35,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB4C8F2229D499C1002CE196 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = "../../polywrap/swift-client/Sources/PolywrapClient/include"; sourceTree = "<group>"; };
 		DB6697E229D064B900E824B9 /* account_abstraction_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account_abstraction_demoApp.swift; sourceTree = "<group>"; };
 		DB6697E429D064B900E824B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB6697E629D064BB00E824B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6697E929D064BB00E824B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB6697F029D0713E00E824B9 /* AccountAbstractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAbstractionView.swift; sourceTree = "<group>"; };
-		DB7458C829D27FA600B85519 /* Ecies.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Ecies.xcframework; path = "../../metamask/ios-sdk/Sources/metamask-ios-sdk/Frameworks/Ecies.xcframework"; sourceTree = "<group>"; };
 		DB7458D229D2815B00B85519 /* account-abstraction-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "account-abstraction-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7458D429D2815B00B85519 /* account_abstraction_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account_abstraction_demoApp.swift; sourceTree = "<group>"; };
 		DB7458D629D2815B00B85519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB7458D829D2815D00B85519 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB7458DB29D2815D00B85519 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB7DBA9829D26E61009638BC /* ClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
+		DB8AB63D29D4A84200AAA08C /* swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = swift; path = ../../polywrap/http/implementations/swift; sourceTree = "<group>"; };
+		DB8AB64729D4AA9200AAA08C /* polywrap_client_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = polywrap_client_dep.h; sourceTree = "<group>"; };
 		DB90232629D3C7C900F3346F /* AccountAbstractionScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAbstractionScripts.swift; sourceTree = "<group>"; };
-		DB90232B29D3DDD400F3346F /* swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = swift; path = ../../polywrap/http/implementations/swift; sourceTree = "<group>"; };
+		DBBE3E9729D4BBCB007E32E1 /* swift-metamask */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-metamask"; path = "../../polywrap/ethereum/provider/implementations/swift-metamask"; sourceTree = "<group>"; };
 		DBC8E1DA29D3293800364DDD /* swift-client */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-client"; path = "../../polywrap/swift-client"; sourceTree = "<group>"; };
+		DBD647A529D4B2940017012B /* PolywrapNativeClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolywrapNativeClient.h; sourceTree = "<group>"; };
+		DBD647A629D4B2940017012B /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		DBEFE00329D3740E006C4BC6 /* PolywrapNativeClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PolywrapNativeClient.xcframework; path = "../../polywrap/swift-client/Sources/PolywrapClient/Frameworks/PolywrapNativeClient.xcframework"; sourceTree = "<group>"; };
 		DBF330A029D26D07004A550E /* account-abstraction-demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "account-abstraction-demo.entitlements"; sourceTree = "<group>"; };
-		DBFD17EA29D32B010019B6D1 /* swift-metamask */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-metamask"; path = "../../polywrap/ethereum/provider/implementations/swift-metamask"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB00CE9929D343E60024D257 /* PolywrapClient in Frameworks */,
-				DB90232D29D3DDDE00F3346F /* HttpPlugin in Frameworks */,
+				DB8AB63F29D4A85000AAA08C /* HttpPlugin in Frameworks */,
+				DB8AB65229D4AF9A00AAA08C /* PolywrapClient in Frameworks */,
+				DBBE3E9929D4BBD2007E32E1 /* MetamaskProvider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +75,11 @@
 		DB6697D629D064B900E824B9 = {
 			isa = PBXGroup;
 			children = (
+				DBD647A429D4B2940017012B /* include */,
 				DBC8E1D929D3293800364DDD /* Packages */,
 				DB6697E129D064B900E824B9 /* account-abstraction-demo */,
 				DB7458D329D2815B00B85519 /* account-abstraction-demo */,
+				DB8AB64629D4AA9200AAA08C /* polywrap-client-dep */,
 				DB6697E029D064B900E824B9 /* Products */,
 				DBC283CE29D22B6B0048EF64 /* Frameworks */,
 			);
@@ -128,11 +135,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DB8AB64629D4AA9200AAA08C /* polywrap-client-dep */ = {
+			isa = PBXGroup;
+			children = (
+				DB8AB64729D4AA9200AAA08C /* polywrap_client_dep.h */,
+			);
+			path = "polywrap-client-dep";
+			sourceTree = "<group>";
+		};
 		DBC283CE29D22B6B0048EF64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB4C8F2229D499C1002CE196 /* include */,
 				DBEFE00329D3740E006C4BC6 /* PolywrapNativeClient.xcframework */,
-				DB7458C829D27FA600B85519 /* Ecies.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,10 +156,19 @@
 			isa = PBXGroup;
 			children = (
 				DBC8E1DA29D3293800364DDD /* swift-client */,
-				DBFD17EA29D32B010019B6D1 /* swift-metamask */,
-				DB90232B29D3DDD400F3346F /* swift */,
+				DB8AB63D29D4A84200AAA08C /* swift */,
+				DBBE3E9729D4BBCB007E32E1 /* swift-metamask */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		DBD647A429D4B2940017012B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DBD647A529D4B2940017012B /* PolywrapNativeClient.h */,
+				DBD647A629D4B2940017012B /* module.modulemap */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +190,9 @@
 			);
 			name = "account-abstraction-demo";
 			packageProductDependencies = (
-				DB00CE9829D343E60024D257 /* PolywrapClient */,
-				DB90232C29D3DDDE00F3346F /* HttpPlugin */,
+				DB8AB63E29D4A85000AAA08C /* HttpPlugin */,
+				DB8AB65129D4AF9A00AAA08C /* PolywrapClient */,
+				DBBE3E9829D4BBD2007E32E1 /* MetamaskProvider */,
 			);
 			productName = "account-abstraction-demo";
 			productReference = DB7458D229D2815B00B85519 /* account-abstraction-demo.app */;
@@ -201,7 +226,6 @@
 			);
 			mainGroup = DB6697D629D064B900E824B9;
 			packageReferences = (
-				DB00CE9C29D3506B0024D257 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
 			);
 			productRefGroup = DB6697E029D064B900E824B9 /* Products */;
 			projectDirPath = "";
@@ -310,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/$(PROJECT_NAME)/CustomHeaders";
+				HEADER_SEARCH_PATHS = "/Uses/cesar/dev/polywrap/swift-client";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -366,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/$(PROJECT_NAME)/CustomHeaders";
+				HEADER_SEARCH_PATHS = "/Uses/cesar/dev/polywrap/swift-client";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -391,7 +415,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,7 +450,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -471,25 +495,18 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		DB00CE9C29D3506B0024D257 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
-			requirement = {
-				kind = revision;
-				revision = dd1bd3b77edea5fb3defd0a9b4d314fff57d3114;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		DB00CE9829D343E60024D257 /* PolywrapClient */ = {
+		DB8AB63E29D4A85000AAA08C /* HttpPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HttpPlugin;
+		};
+		DB8AB65129D4AF9A00AAA08C /* PolywrapClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PolywrapClient;
 		};
-		DB90232C29D3DDDE00F3346F /* HttpPlugin */ = {
+		DBBE3E9829D4BBD2007E32E1 /* MetamaskProvider */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HttpPlugin;
+			productName = MetamaskProvider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

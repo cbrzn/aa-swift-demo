@@ -73,15 +73,22 @@ public func getEstimateFee(
     )
 }
 
-public struct ArgsGetSafeAddress: Codable {
-    var config: [String: [String: String]]
+public struct SafeAccountConfig: Codable {
+    var owners: [String]
+    var threshold: UInt
     
-    public init(saltNonce: String) {
-        config = [
-            "config": [
-                "saltNonce": saltNonce
-            ]
-        ]
+    public init(owners: [String], threshold: UInt) {
+        self.owners = owners
+        self.threshold = threshold
+    }
+}
+
+public struct ArgsGetSafeAddress: Codable {
+    var input: [String: SafeAccountConfig];
+    
+    public init(_ owner: String) {
+        let config = SafeAccountConfig(owners: [owner], threshold: 1)
+        self.input = ["input": config]
     }
 }
 
@@ -91,22 +98,17 @@ public func getSafeAddress(
 ) -> String {
     return client.invoke(
         uri: SAFE_FACTORY_URI,
-        method: "getSafeAddress",
-        args: args,
+        method: "predictSafeAddress",
+        args: args.input,
         env: nil
     )
 }
 
 public struct ArgsGetBalance: Codable {
     var address: String
-    var connection: [String: String?]
     
-    public init(address: String, connection: String) {
+    public init(address: String) {
         self.address = address
-        self.connection = [
-            "networkNameOrChainId": connection,
-            "node": nil
-        ]
     }
 }
 
@@ -175,3 +177,31 @@ public func relayTransaction(
     )
 }
 
+func subinvoke() async -> String {
+    let client = getClient(nil)
+    let wrapperUri = Uri("http/https://raw.githubusercontent.com/polywrap/wrap-test-harness/v0.2.1/wrappers/asyncify/implementations/as")!
+   
+    struct Args:Codable {
+        var numberOfTimes: Int
+        
+        public init(numberOfTimes: Int) {
+            self.numberOfTimes = numberOfTimes
+        }
+    }
+    let result = client.invoke(uri: wrapperUri, method: "subsequentInvokes", args: Args(numberOfTimes: 3), env: nil)
+    print(result)
+    return result
+}
+public struct ArgsGetBalanceProvider: Codable {
+    var method: String
+    var params: String
+    
+    init(address: String) {
+        self.method = "eth_getBalance"
+        self.params = "[\"\(address)\",\"latest\"]"
+    }
+}
+public func getBalanceThroughClientAndMetamask(_ args: ArgsGetBalanceProvider, _ client: PolywrapClient) -> String {
+    let result = client.invoke(uri: ETHEREUM_PROVIDER_URI, method: "request", args: args, env: nil)
+    return result
+}

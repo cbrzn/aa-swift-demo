@@ -1,14 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "metamask-ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MetaMask/metamask-ios-sdk",
-      "state" : {
-        "revision" : "dd1bd3b77edea5fb3defd0a9b4d314fff57d3114"
-      }
-    },
-    {
       "identity" : "socket.io-client-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/socketio/socket.io-client-swift",

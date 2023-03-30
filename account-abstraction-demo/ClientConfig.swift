@@ -8,7 +8,7 @@
 import Foundation
 import PolywrapClient
 import HttpPlugin
-//import MetamaskProvider
+import MetamaskProvider
 
 public var AA_WRAPPER_URI = Uri("wrap://wrapper/account-abstraction")!
 public var ETHEREUM_CORE_WRAPPER_URI = Uri("ens/wraps.eth:ethereum@2.0.0")!
@@ -20,7 +20,7 @@ public var SAFE_CONTRACTS_URI = Uri("ens/safe.wraps.eth:contracts@0.1.0")!
 public var RELAY_ADAPTER_WRAPPER_URI = Uri("wrap://ens/account-abstraction.wraps.eth:relayer-adapter@0.0.1")!
 public var GELATO_RELAY_WRAPPER_URI = Uri("wrap://ens/gelato.wraps.eth:relayer@0.0.1")!
 
-public func getClient() -> PolywrapClient {
+public func getClient(_ ethereumPlugin: MetamaskProvider?) -> PolywrapClient {
     let builder = ConfigBuilder()
     
     let ETHEREUM_CORE_WRAPPER_HTTP_URI = Uri("http/https://raw.githubusercontent.com/cbrzn/safe-playground/master/wrap-build-artifacts/ethereum/core")!
@@ -49,12 +49,12 @@ public func getClient() -> PolywrapClient {
     let httpPlugin = HttpPlugin()
     builder.addPlugin(uri: HTTP_PLUGIN_URI, plugin: httpPlugin)
     
-//    let ethereumPlugin = MetamaskProviderPlugin()
-//    builder.addPlugin(uri: ETHEREUM_PROVIDER_URI, plugin: ethereumPlugin)
-
+    if let plugin = ethereumPlugin {
+        builder.addPlugin(uri: ETHEREUM_PROVIDER_URI, plugin: plugin)
+    }
     
     let env: Dictionary<String, String> = [
-        "safeAddress": "0x..",
+        "safeAddress": "0x5655294c49e7196c21f20551330c2204db2bd670",
         "connection": "goerli"
     ]
     
@@ -66,6 +66,42 @@ public func getClient() -> PolywrapClient {
     }
     builder.addInterfaceImplementation(interfaceUri: ETHEREUM_PROVIDER_URI, implementationUri: ETHEREUM_PROVIDER_URI)
     
-        
+//    builder.addRedirect(
+//        from: Uri("ens/add.eth")!,
+//        to: Uri("http/https://raw.githubusercontent.com/polywrap/wrap-test-harness/v0.2.1/wrappers/asyncify/implementations/as")!
+//    )
+    
+//    let mockPlugin = MockPlugin()
+//    let mockPluginUri = Uri("wrap://ens/memory-storage.polywrap.eth")!
+//    builder.addPlugin(uri: mockPluginUri, plugin: mockPlugin)
+    
     return PolywrapClient(clientConfigBuilder: builder)
 }
+
+//public struct ArgsGetData: Codable {}
+//public struct ArgsSetData: Codable {
+//    var value: Int
+//    public init(value: Int) {
+//        self.value = value
+//    }
+//}
+//
+//public class MockPlugin: Plugin {
+//    var value: Int = 0;
+//    public override init() {
+//        super.init()
+//        super.addMethod(name: "getData", closure: getData)
+//        super.addMethod(name: "setData", closure: setData)
+//    }
+//
+//    public func getData(_ args: ArgsGetData) async -> Int {
+//        return value
+//    }
+//
+//    public func setData(_ args: ArgsSetData) async ->  Bool {
+//        try! await Task.sleep(nanoseconds: 1000000000)
+//        self.value = args.value
+//        return true
+//    }
+//}
+
