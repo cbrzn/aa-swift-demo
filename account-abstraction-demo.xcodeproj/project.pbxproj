@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB498E7729D670E400EE55FA /* DatetimePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = DB498E7629D670E400EE55FA /* DatetimePlugin */; };
 		DB7458D529D2815B00B85519 /* account_abstraction_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7458D429D2815B00B85519 /* account_abstraction_demoApp.swift */; };
 		DB7458D729D2815B00B85519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7458D629D2815B00B85519 /* ContentView.swift */; };
 		DB7458D929D2815D00B85519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7458D829D2815D00B85519 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB498E7529D670D600EE55FA /* swift-datetime */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-datetime"; path = "../../polywrap/datetime/implementations/swift-datetime"; sourceTree = "<group>"; };
 		DB4C8F2229D499C1002CE196 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = "../../polywrap/swift-client/Sources/PolywrapClient/include"; sourceTree = "<group>"; };
 		DB6697E229D064B900E824B9 /* account_abstraction_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account_abstraction_demoApp.swift; sourceTree = "<group>"; };
 		DB6697E429D064B900E824B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			files = (
 				DB8AB63F29D4A85000AAA08C /* HttpPlugin in Frameworks */,
 				DB8AB65229D4AF9A00AAA08C /* PolywrapClient in Frameworks */,
+				DB498E7729D670E400EE55FA /* DatetimePlugin in Frameworks */,
 				DBBE3E9929D4BBD2007E32E1 /* MetamaskProvider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +161,7 @@
 				DBC8E1DA29D3293800364DDD /* swift-client */,
 				DB8AB63D29D4A84200AAA08C /* swift */,
 				DBBE3E9729D4BBCB007E32E1 /* swift-metamask */,
+				DB498E7529D670D600EE55FA /* swift-datetime */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -193,6 +197,7 @@
 				DB8AB63E29D4A85000AAA08C /* HttpPlugin */,
 				DB8AB65129D4AF9A00AAA08C /* PolywrapClient */,
 				DBBE3E9829D4BBD2007E32E1 /* MetamaskProvider */,
+				DB498E7629D670E400EE55FA /* DatetimePlugin */,
 			);
 			productName = "account-abstraction-demo";
 			productReference = DB7458D229D2815B00B85519 /* account-abstraction-demo.app */;
@@ -496,6 +501,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DB498E7629D670E400EE55FA /* DatetimePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatetimePlugin;
+		};
 		DB8AB63E29D4A85000AAA08C /* HttpPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HttpPlugin;

@@ -19,7 +19,7 @@ struct ContentView: View {
         VStack {
             Text("Account abstraction demo")
                 .bold()
-            if metamaskProvider != nil {
+            if ethereum.selectedAddress != "" && metamaskProvider != nil {
                 AccountAbstractionView(metamaskProvider: metamaskProvider!)
             } else {
                 Button {

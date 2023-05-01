@@ -14,10 +14,12 @@ import HttpPlugin
 struct AccountAbstractionView: View {
     var metamaskProvider: MetamaskProvider
     @State private var signerAddress = "0x61FfE691821291D02E9Ba5D33098ADcee71a3a17"
-    @State private var safeAddress = "0x61FfE691821291D02E9Ba5D33098ADcee71a3a17"
+    @State private var safeAddress = ""
     @State private var saltNonce = ""
     @State private var numberToStore = 0
     @State private var isDeployed = false
+    @State private var isLoading = false
+    @State private var isExecuting = false
 
     var body: some View {
         VStack {
@@ -34,89 +36,59 @@ struct AccountAbstractionView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-//            if !isDeployed {
-//                TextField("Number to store", text: numberToStore)
-//                    .padding()
-//                    .background(Color(.systemGray6))
-//                    .cornerRadius(8)
-//                    .padding(.horizontal)
-//            }
-            Button(action: {
-                Task {
-                    // Add your deploy safe action here
-                    let result = await encodeFunctionWithClient()
-                    print(result)
-                }
-            }) {
-                Text("Encode")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
             .padding(.horizontal)
+
             Button(action: {
                 Task {
+                    isExecuting = true
+                    defer { isExecuting = false }
                     // Add your deploy safe action here
                     let result = await executeTransaction()
                     print(result)
                 }
             }) {
-                Text("Send transaction from client & plugin!")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
+                if isExecuting {
+                    ProgressView()
+                        .frame(width: 50, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .padding(.top)
+                } else {
+                    
+                    
+                    Text("Send transaction through AA")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
             }
             .padding(.horizontal)
-            
+
             Button(action: {
                 Task {
+                    isLoading = true
+                    defer { isLoading = false }
                     // Add your deploy safe action here
-                    let result = await getBalanceThroughClient()
-                    print(result)
+                    let result = await getAccountAddress()
+                    safeAddress = result.replacingOccurrences(of: "\"", with: "")
                 }
             }) {
-                Text("Get balance from metamask using client & only provider plugin")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            .padding(.horizontal)
-            
-            Button(action: {
-                Task {
-                    // Add your deploy safe action here
-                    let result = await getBalanceDirectlyFromMetamask()
-                    print(result)
+                if isLoading {
+                    ProgressView()
+                        .frame(width: 50, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .padding(.top)
+                } else {
+                    Text("Get predicted safe address")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
                 }
-            }) {
-                Text("Get balance from metamask directly")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            .padding(.horizontal)
-            
-            Button(action: {
-                Task {
-                    // Add your deploy safe action here
-                    let result = await getUserBalancerThroughWrapper()
-                    print(result)
-                }
-            }) {
-                Text("Get balance through wrapper")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
             }
             .padding(.horizontal)
         }
@@ -130,17 +102,15 @@ struct AccountAbstractionView: View {
     
     func getAccountAddress() async -> String {
         let client = getClient(metamaskProvider)
-        let userAddress = await metamaskProvider.address(ArgsAddress())
-        let args = ArgsGetSafeAddress(userAddress)
-        print("user address: \(userAddress)")
+        let userAddress: String = await metamaskProvider.signerAddress(ArgsAddress())
+        let args = ArgsGetSafeAddress(userAddress, nil)
         let address = getSafeAddress(args, client)
-        print(address)
         return address
     }
     
     func getBalanceDirectlyFromMetamask() async -> String {
         let client = getClient(metamaskProvider)
-        let address = await metamaskProvider.address(ArgsAddress())
+        let address = await metamaskProvider.signerAddress(ArgsAddress())
         let result = await metamaskProvider.request(args: ArgsRequest(method: "eth_getBalance", params: "[\"\(address)\",\"latest\"]"))
         print(result)
         return result
@@ -148,7 +118,7 @@ struct AccountAbstractionView: View {
     
     func getBalanceThroughClient() async -> String {
         let client = getClient(metamaskProvider)
-        let address = await metamaskProvider.address(ArgsAddress())
+        let address = await metamaskProvider.signerAddress(ArgsAddress())
         
         let args = ArgsGetBalanceProvider(address: address)
         let result = getBalanceThroughClientAndMetamask(args, client)
@@ -159,7 +129,7 @@ struct AccountAbstractionView: View {
     
     func getUserBalancerThroughWrapper() async -> String {
         let client = getClient(metamaskProvider)
-        let userAddress = await metamaskProvider.address(ArgsAddress())
+        let userAddress = await metamaskProvider.signerAddress(ArgsAddress())
 
         let balance = getBalance(ArgsGetBalance(address: userAddress), client)
         print(balance)
@@ -177,68 +147,33 @@ struct AccountAbstractionView: View {
         
     }
     
+    func signTypedDataUI() async -> Void {
+        let client = getClient(metamaskProvider)
+        let args = ArgsSignTypedData()
+        let r = signTypedData(args, client)
+        print(r)
+    }
+    
     func executeTransaction() async -> String {
         let client = getClient(metamaskProvider)
-        let userAddress = await metamaskProvider.address(ArgsAddress())
-//        let metaTransaction = [
-//            "to": "0x56535D1162011E54aa2F6B003d02Db171c17e41e",
-//            "value": "0",
-//            "data": encodedFunction,
-//            "operation": "0"
-//        ]
-//
-//        let tx = Transaction(to: "0x56535D1162011E54aa2F6B003d02Db171c17e41e", from: userAddress, value: "0", data: "0x6057361d0000000000000000000000000000000000000000000000000000000000000004")
-//        print(tx)
+        let userAddress = await metamaskProvider.signerAddress(ArgsAddress())
         
-        
-        struct CustomArgsRequest: Codable {
-            var method = "eth_sendTransaction"
-            var params: String
-            public init(tx: [String: String]) {
-                let jsonData = try! JSONEncoder().encode([tx])
-                self.params = String(data: jsonData, encoding: .utf8)!
-            }
-        }
-        
-        let txData = [
+        let metaTransaction = [
             "to": "0x56535D1162011E54aa2F6B003d02Db171c17e41e",
-            "from": userAddress,
             "value": "0",
-            "data": "0x6057361d0000000000000000000000000000000000000000000000000000000000000007"
+            "data": "0x6057361d0000000000000000000000000000000000000000000000000000000000000015",
+            "operation": "0"
         ]
-        let result = client.invoke(
-            uri: ETHEREUM_PROVIDER_URI,
-            method: "request",
-            args: CustomArgsRequest(tx: txData),
-            env: nil
-        )
-        
-//        let executeTransaction = client.invoke(
-//            uri: ETHEREUM_CORE_WRAPPER_URI,
-//            method: "sendTransaction",
-//            args: tx,
-//            env: nil
-//        )
-        
-        print(result)
-        return result
 
- //        let estimateGasArgs = ArgsEstimateTransactionGas(
- //           to: metaTransaction["to"],
- //           value: metaTransaction["value"],
- //           data: metaTransaction["data"]
- //       )
- //       let gasLimit = estimateGas(estimateGasArgs, client)
-//        let gasLimit = "350000"
-//
-//        let options = MetaTransactionOptions(isSponsored: true, gasLimit: gasLimit)
-//        print("options: \(options)")
-//        let relayTransactionArgs = ArgsRelayTransaction(transaction: metaTransaction, options: options)
-//
-//        let transactionRelayed = relayTransaction(relayTransactionArgs, client)
-//        print("transaction relayed: \(transactionRelayed)")
-//        return transactionRelayed
-//        return "0x4c4883d08f10776182b734f6dedd4b53c428777d30826978bfef164d735bdd5a"
+        let gasLimit = "350000"
+
+        let options = MetaTransactionOptions(isSponsored: true, gasLimit: gasLimit)
+        print("options: \(options)")
+        let relayTransactionArgs = ArgsRelayTransaction(transaction: metaTransaction, options: options)
+
+        let transactionRelayed = relayTransaction(relayTransactionArgs, client)
+        print("transaction relayed: \(transactionRelayed)")
+        return transactionRelayed
     }
 }
 
