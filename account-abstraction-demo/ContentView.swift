@@ -12,12 +12,12 @@ import MetamaskProvider
 
 struct ContentView: View {
     @ObservedObject var ethereum: Ethereum = MetaMaskSDK.shared.ethereum
-    private let dapp = Dapp(name: "Polywrap dApp", url: "https://polywrap.io")
+    private let dapp = Dapp(name: "Safe demo dApp", url: "")
     @State private var metamaskProvider: MetamaskProvider? = nil
 
     var body: some View {
         VStack {
-            Text("Account abstraction demo")
+            Text("Gnosis safe wrapper demo")
                 .bold()
             if ethereum.selectedAddress != "" && metamaskProvider != nil {
                 AccountAbstractionView(metamaskProvider: metamaskProvider!)
@@ -25,7 +25,7 @@ struct ContentView: View {
                 Button {
                     connect()
                 } label: {
-                    Text("Connect")
+                    Text("Connect with metamask")
                 }
             }
                       

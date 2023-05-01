@@ -13,10 +13,10 @@
 		DB7458D929D2815D00B85519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7458D829D2815D00B85519 /* Assets.xcassets */; };
 		DB7458DC29D2815D00B85519 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7458DB29D2815D00B85519 /* Preview Assets.xcassets */; };
 		DB7458E729D281A200B85519 /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7DBA9829D26E61009638BC /* ClientConfig.swift */; };
-		DB7458E829D281A900B85519 /* AccountAbstractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6697F029D0713E00E824B9 /* AccountAbstractionView.swift */; };
+		DB7458E829D281A900B85519 /* SafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6697F029D0713E00E824B9 /* SafeView.swift */; };
 		DB8AB63F29D4A85000AAA08C /* HttpPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = DB8AB63E29D4A85000AAA08C /* HttpPlugin */; };
 		DB8AB65229D4AF9A00AAA08C /* PolywrapClient in Frameworks */ = {isa = PBXBuildFile; productRef = DB8AB65129D4AF9A00AAA08C /* PolywrapClient */; };
-		DB90232729D3C7C900F3346F /* AccountAbstractionScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90232629D3C7C900F3346F /* AccountAbstractionScripts.swift */; };
+		DB90232729D3C7C900F3346F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90232629D3C7C900F3346F /* Utils.swift */; };
 		DBBE3E9929D4BBD2007E32E1 /* MetamaskProvider in Frameworks */ = {isa = PBXBuildFile; productRef = DBBE3E9829D4BBD2007E32E1 /* MetamaskProvider */; };
 		DBEFE00529D376BC006C4BC6 /* PolywrapNativeClient.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBEFE00329D3740E006C4BC6 /* PolywrapNativeClient.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		DB6697E429D064B900E824B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB6697E629D064BB00E824B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6697E929D064BB00E824B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DB6697F029D0713E00E824B9 /* AccountAbstractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAbstractionView.swift; sourceTree = "<group>"; };
+		DB6697F029D0713E00E824B9 /* SafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeView.swift; sourceTree = "<group>"; };
 		DB7458D229D2815B00B85519 /* account-abstraction-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "account-abstraction-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7458D429D2815B00B85519 /* account_abstraction_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account_abstraction_demoApp.swift; sourceTree = "<group>"; };
 		DB7458D629D2815B00B85519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		DB7DBA9829D26E61009638BC /* ClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
 		DB8AB63D29D4A84200AAA08C /* swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = swift; path = ../../polywrap/http/implementations/swift; sourceTree = "<group>"; };
 		DB8AB64729D4AA9200AAA08C /* polywrap_client_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = polywrap_client_dep.h; sourceTree = "<group>"; };
-		DB90232629D3C7C900F3346F /* AccountAbstractionScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAbstractionScripts.swift; sourceTree = "<group>"; };
+		DB90232629D3C7C900F3346F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DBBE3E9729D4BBCB007E32E1 /* swift-metamask */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-metamask"; path = "../../polywrap/ethereum/provider/implementations/swift-metamask"; sourceTree = "<group>"; };
 		DBC8E1DA29D3293800364DDD /* swift-client */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-client"; path = "../../polywrap/swift-client"; sourceTree = "<group>"; };
 		DBD647A529D4B2940017012B /* PolywrapNativeClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolywrapNativeClient.h; sourceTree = "<group>"; };
@@ -104,9 +104,9 @@
 				DB6697E429D064B900E824B9 /* ContentView.swift */,
 				DB6697E629D064BB00E824B9 /* Assets.xcassets */,
 				DB6697E829D064BB00E824B9 /* Preview Content */,
-				DB6697F029D0713E00E824B9 /* AccountAbstractionView.swift */,
+				DB6697F029D0713E00E824B9 /* SafeView.swift */,
 				DB7DBA9829D26E61009638BC /* ClientConfig.swift */,
-				DB90232629D3C7C900F3346F /* AccountAbstractionScripts.swift */,
+				DB90232629D3C7C900F3346F /* Utils.swift */,
 			);
 			path = "account-abstraction-demo";
 			sourceTree = "<group>";
@@ -278,9 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7458E829D281A900B85519 /* AccountAbstractionView.swift in Sources */,
+				DB7458E829D281A900B85519 /* SafeView.swift in Sources */,
 				DB7458E729D281A200B85519 /* ClientConfig.swift in Sources */,
-				DB90232729D3C7C900F3346F /* AccountAbstractionScripts.swift in Sources */,
+				DB90232729D3C7C900F3346F /* Utils.swift in Sources */,
 				DB7458D729D2815B00B85519 /* ContentView.swift in Sources */,
 				DB7458D529D2815B00B85519 /* account_abstraction_demoApp.swift in Sources */,
 			);
