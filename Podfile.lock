@@ -1,0 +1,49 @@
+PODS:
+  - AsyncObjects (2.1.0):
+    - OrderedCollections (~> 1.0.0)
+  - MessagePacker (0.4.7)
+  - metamask-ios-sdk (0.2.0):
+    - Socket.IO-Client-Swift (~> 16.0.1)
+  - MetamaskProviderPlugin (0.0.1):
+    - metamask-ios-sdk (~> 0.2.0)
+    - PolywrapClient (~> 0.0.4)
+  - OrderedCollections (1.0.4)
+  - PolywrapClient (0.0.4):
+    - AsyncObjects (~> 2.1.0)
+    - MessagePacker (~> 0.4.7)
+    - PolywrapClientNative (~> 0.0.4)
+  - PolywrapClientNative (0.0.4)
+  - Socket.IO-Client-Swift (16.0.1):
+    - Starscream (~> 4.0)
+  - Starscream (4.0.4)
+
+DEPENDENCIES:
+  - MetamaskProviderPlugin
+  - PolywrapClient
+
+SPEC REPOS:
+  trunk:
+    - AsyncObjects
+    - MessagePacker
+    - metamask-ios-sdk
+    - MetamaskProviderPlugin
+    - OrderedCollections
+    - PolywrapClient
+    - PolywrapClientNative
+    - Socket.IO-Client-Swift
+    - Starscream
+
+SPEC CHECKSUMS:
+  AsyncObjects: 37d04187100fd9cd545a6570a8ad727c5a3c5090
+  MessagePacker: ab2fe250e86ea7aedd1a9ee47a37083edd41fd02
+  metamask-ios-sdk: 3c7b575d49b947cdf03ca1c766a9dec9f2c50b90
+  MetamaskProviderPlugin: 27d99da07712cf72ecd2ecbdbdca5e571a717a31
+  OrderedCollections: c754ce5f9e42cf22b73afd73582317347903ab6d
+  PolywrapClient: 889c7c823912ad38fb9e0280e1766ccfe4a492b7
+  PolywrapClientNative: 097e54981c50e33f5252c1967c9fab9657db095f
+  Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+
+PODFILE CHECKSUM: e2d8eb9fe510d15fc871a7fb05c1f90d63b06498
+
+COCOAPODS: 1.12.1
