@@ -6,6 +6,7 @@ target 'EthereumDemo' do
   use_frameworks!
 
   # Pods for account-abstraction-demo
-  pod 'PolywrapClient'
-  pod 'MetamaskProviderPlugin'
+  pod 'PolywrapClient', '= 0.0.5'
+  pod 'MetamaskProviderPlugin', :git => 'https://github.com/polywrap/ethereum-wallet.git', :branch => 'feat/swift-implementation'
+  pod 'DatetimePlugin', :git => 'https://github.com/polywrap/datetime.git', :branch => 'feat/swift-implementation'
 end

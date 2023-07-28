@@ -36,7 +36,9 @@ struct ContentView: View {
     }
 
     func connect() {
-        metamaskProvider = MetamaskProvider(ethereum: ethereum, dapp: dapp)
+        var provider = getMetamaskProviderPlugin() as! MetamaskProvider
+        provider.connect(ethereum: ethereum, dapp: dapp)
+        metamaskProvider = provider
     }
 }
 

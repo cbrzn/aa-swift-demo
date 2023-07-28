@@ -1,14 +1,16 @@
 PODS:
   - AsyncObjects (2.1.0):
     - OrderedCollections (~> 1.0.0)
+  - DatetimePlugin (0.0.2):
+    - PolywrapClient (~> 0.0.5)
   - MessagePacker (0.4.7)
   - metamask-ios-sdk (0.2.0):
     - Socket.IO-Client-Swift (~> 16.0.1)
-  - MetamaskProviderPlugin (0.0.1):
+  - MetamaskProviderPlugin (0.0.3):
     - metamask-ios-sdk (~> 0.2.0)
-    - PolywrapClient (~> 0.0.4)
+    - PolywrapClient (~> 0.0.5)
   - OrderedCollections (1.0.4)
-  - PolywrapClient (0.0.4):
+  - PolywrapClient (0.0.5):
     - AsyncObjects (~> 2.1.0)
     - MessagePacker (~> 0.4.7)
     - PolywrapClientNative (~> 0.0.4)
@@ -18,32 +20,49 @@ PODS:
   - Starscream (4.0.4)
 
 DEPENDENCIES:
-  - MetamaskProviderPlugin
-  - PolywrapClient
+  - DatetimePlugin (from `https://github.com/polywrap/datetime.git`, branch `feat/swift-implementation`)
+  - MetamaskProviderPlugin (from `https://github.com/polywrap/ethereum-wallet.git`, branch `feat/swift-implementation`)
+  - PolywrapClient (= 0.0.5)
 
 SPEC REPOS:
   trunk:
     - AsyncObjects
     - MessagePacker
     - metamask-ios-sdk
-    - MetamaskProviderPlugin
     - OrderedCollections
     - PolywrapClient
     - PolywrapClientNative
     - Socket.IO-Client-Swift
     - Starscream
 
+EXTERNAL SOURCES:
+  DatetimePlugin:
+    :branch: feat/swift-implementation
+    :git: https://github.com/polywrap/datetime.git
+  MetamaskProviderPlugin:
+    :branch: feat/swift-implementation
+    :git: https://github.com/polywrap/ethereum-wallet.git
+
+CHECKOUT OPTIONS:
+  DatetimePlugin:
+    :commit: 573f7907ac749faaa19ad7d02301909b52b270fc
+    :git: https://github.com/polywrap/datetime.git
+  MetamaskProviderPlugin:
+    :commit: f73654664fd82d502e7b999ff828cb05ef93faf7
+    :git: https://github.com/polywrap/ethereum-wallet.git
+
 SPEC CHECKSUMS:
   AsyncObjects: 37d04187100fd9cd545a6570a8ad727c5a3c5090
+  DatetimePlugin: eaaa6f13fef2eebd716b8e0cb102cc3d47edf24e
   MessagePacker: ab2fe250e86ea7aedd1a9ee47a37083edd41fd02
   metamask-ios-sdk: 3c7b575d49b947cdf03ca1c766a9dec9f2c50b90
-  MetamaskProviderPlugin: 27d99da07712cf72ecd2ecbdbdca5e571a717a31
+  MetamaskProviderPlugin: e6281334af27fa6cf5dd72521f90b8780b1ad785
   OrderedCollections: c754ce5f9e42cf22b73afd73582317347903ab6d
-  PolywrapClient: 889c7c823912ad38fb9e0280e1766ccfe4a492b7
+  PolywrapClient: 4c20c9d5ef636266ef25073f651ccf576496645c
   PolywrapClientNative: 097e54981c50e33f5252c1967c9fab9657db095f
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
-PODFILE CHECKSUM: e2d8eb9fe510d15fc871a7fb05c1f90d63b06498
+PODFILE CHECKSUM: 6183e18437b09697f4c7c5c708f122ef503e6c98
 
 COCOAPODS: 1.12.1

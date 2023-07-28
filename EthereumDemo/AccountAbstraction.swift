@@ -42,8 +42,12 @@ struct AccountAbstractionView: View {
                     isExecuting = true
                     defer { isExecuting = false }
                     // Add your deploy safe action here
-                    let result = await executeDeploy()
-                    print(result)
+                    do {
+                        let result = try await executeDeploy()
+                        print(result)
+                    } catch {
+                        print("error deploying: \(error)")
+                    }
                 }
             }) {
                 if isExecuting {
@@ -72,13 +76,13 @@ struct AccountAbstractionView: View {
     }
     
     
-    func executeDeploy() async -> String {
-//        let client = getClient(metamaskProvider)
-//        let userAddress: String = await metamaskProvider.signerAddress(ArgsAddress())
-//        let safeArgs = ArgsSafe(userAddress, "0x33994")
-//        let result = deploySafe(safeArgs, client)
-//        return result
-        return ""
+    func executeDeploy() async throws -> String {
+        let client = try getClient(metamaskProvider)
+//        let userAddress: String = await metamaskProvider.signerAddress(VoidCodable())
+        let safeArgs = ArgsSafe("0x61FfE691821291D02E9Ba5D33098ADcee71a3a17", "0x7777773994")
+        let result = try deploySafe(safeArgs, client)
+        return result
+//        return ""
     }
 }
 
